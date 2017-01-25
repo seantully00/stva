@@ -23,7 +23,7 @@ module.exports = function (passport) {
   },
 	function (token, refreshToken, profile, done) {
 		process.nextTick(function () {
-			User.findOne({ twitter.id_str: profile.id_str }, function (err, user) {
+			User.findOne({ 'twitter.id_str': profile.id_str }, function (err, user) {
 				if (err) {
 					return done(err);
 				}
