@@ -23,7 +23,7 @@ module.exports = function (passport) {
   },
 	function (token, refreshToken, profile, done) {
 		process.nextTick(function () {
-			User.findOne({ 'twitter.id_str': profile.id_str }, function (err, user) {
+			User.findOne({ twitter.id_str: profile.id_str }, function (err, user) {
 				if (err) {
 					return done(err);
 				}
@@ -33,9 +33,9 @@ module.exports = function (passport) {
 				} else {
 					var newUser = new User();
 
-					newUser.twiiter.id_str = profile.id_str;
-					newUser.twiiter.screen_name = profile.screen_name;
-					newUser.twiiter.name = profile.name;
+					newUser.twitter.id_str = profile.id_str;
+					newUser.twitter.screen_name = profile.screen_name;
+					newUser.twitter.name = profile.name;
 
 					newUser.save(function (err) {
 						if (err) {
