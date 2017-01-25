@@ -14,6 +14,18 @@ module.exports = function (passport) {
 			done(err, user);
 		});
 	});
+	
+	passport.use(new TwitterStrategy({
+    consumerKey: TWITTER_CONSUMER_KEY,
+    consumerSecret: TWITTER_CONSUMER_SECRET,
+    callbackURL: "https://stvapp.herokuapp.com/auth/twitter/callback"
+  },
+  function(token, tokenSecret, profile, cb) {
+    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
 
 	passport.use(new GitHubStrategy({
 		clientID: configAuth.githubAuth.clientID,
