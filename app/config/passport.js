@@ -21,12 +21,33 @@ module.exports = function (passport) {
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: "https://stvapp.herokuapp.com/auth/twitter/callback"
   },
-  function(token, tokenSecret, profile, cb) {
-    User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
+	function (token, refreshToken, profile, done) {
+		process.nextTick(function () {
+			User.findOne({ 'twitter.id_str': profile.id_str }, function (err, user) {
+				if (err) {
+					return done(err);
+				}
+
+				if (user) {
+					return done(null, user);
+				} else {
+					var newUser = new User();
+
+					newUser.twiiter.id_str = profile.id_str;
+					newUser.twiiter.screen_name = profile.screen_name;
+					newUser.twiiter.name = profile.name;
+
+					newUser.save(function (err) {
+						if (err) {
+							throw err;
+						}
+
+						return done(null, newUser);
+					});
+				}
+			});
+		});
+	}));
 
 	passport.use(new GitHubStrategy({
 		clientID: configAuth.githubAuth.clientID,
