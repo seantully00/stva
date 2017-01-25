@@ -17,8 +17,8 @@ module.exports = function (passport) {
 	});
 	
 	passport.use(new TwitterStrategy({
-    consumerKey: TWITTER_CONSUMER_KEY,
-    consumerSecret: TWITTER_CONSUMER_SECRET,
+    consumerKey: process.env.TWITTER_CONSUMER_KEY,
+    consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: "https://stvapp.herokuapp.com/auth/twitter/callback"
   },
   function(token, tokenSecret, profile, cb) {
