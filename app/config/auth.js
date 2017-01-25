@@ -6,7 +6,7 @@ module.exports = {
 		'clientSecret': process.env.GITHUB_SECRET,
 		'callbackURL': process.env.APP_URL + 'auth/github/callback'
 	},
-		'twitterAuth': {
+	'twitterAuth': {
 		'clientID': process.env.TWITTER_CONSUMER_KEY,
 		'clientSecret': process.env.TWITTER_CONSUMER_SECRET,
 		'callbackURL': process.env.APP_URL + 'auth/github/callback'
