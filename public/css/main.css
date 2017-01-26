@@ -189,17 +189,9 @@ span {
 	margin-bottom: 16px;
 }
 
-.github-profile .menu:hover {
-	color: #FFA000;
-}
-
-.github-profile .menu:active {
-	color: #FF630D;
-}
-
 .twitter-profile {
 	width: 350px;
-	height: 200px;
+	height: 350px;
 	border-radius: 3px;
 	margin: 86px auto 0 auto;
 	background-color: #EEE;
@@ -218,14 +210,6 @@ span {
 .twitter-profile p {
 	margin: 0 0 0 16px;
 	text-align: left;
-}
-
-.profile-value {
-	font-weight: 400;
-}
-
-span {
-	font-weight: 500;
 }
 
 .twitter-profile > img {
