@@ -21,7 +21,7 @@ module.exports = function (passport) {
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
     callbackURL: "https://stvapp.herokuapp.com/auth/twitter/callback"
   },
-	function (token, refreshToken, profile, done) {
+	function (token, tokenSecret, profile, done) {
 		process.nextTick(function () {
 			User.findOne({ 'twitter.id': profile.id }, function (err, user) {
 				if (err) {
@@ -34,8 +34,8 @@ module.exports = function (passport) {
 					var newUser = new User();
 
 					newUser.twitter.id = profile.id;
-					newUser.twitter.screen_name = profile.screen_name;
-					newUser.twitter.name  = profile.name;
+					newUser.twitter.username = profile.username;
+					newUser.twitter.displayName  = profile.displayName;
 
 					newUser.save(function (err) {
 						if (err) {
