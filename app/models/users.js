@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
-	github: {
+	/*github: {
 		id: String,
 		displayName: String,
 		username: String,
@@ -12,11 +12,14 @@ var User = new Schema({
 	},
    nbrClicks: {
       clicks: Number
-   },
+   },*/
    twitter: {
         id: String,
         username: String,
-        displayName: String
+        displayName: String,
+        polls: {
+            
+        }
    }
 });
 
