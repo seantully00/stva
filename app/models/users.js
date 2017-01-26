@@ -14,9 +14,9 @@ var User = new Schema({
       clicks: Number
    },
    twitter: {
-        name: String,
-        screen_name: String,
-        id: String
+        id: String,
+        displayName: String,
+        username: String
    }
 });
 
