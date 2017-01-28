@@ -3,4 +3,5 @@ function addfields() {
    var counter = 5;
   
    d.innerHTML += "Choice" + counter + " :<input type='text'><br>";
+   counter++;
 }
