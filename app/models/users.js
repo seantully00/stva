@@ -17,9 +17,9 @@ var User = new Schema({
         id: String,
         username: String,
         displayName: String,
-        polls: {
-            
-        }
+   },
+   allpolls: { 
+       polls: [String]
    }
 });
 
