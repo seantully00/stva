@@ -39,6 +39,10 @@ p {
 	padding: 0;
 }
 
+.createpoll {
+	text-align: center;
+}
+
 /****** Header Styling ******/
 
 header p {
