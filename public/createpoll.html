@@ -23,13 +23,15 @@
 			<p class="clementine-text">Create a Poll</p>
 		</div>
 		<div>
-		    <form class="createpoll">
+		    <form method="post" class="createpoll">
                 Question:<input type="text" name="firstname"><br>
-                Choice 1:<input type="text" name="lastname"><br>
-                Choice 2:<input type="text" name="lastname"><br>
-                Choice 3:<input type="text" name="lastname"><br>
-                Choice 4:<input type="text" name="lastname"><br>
-                <input type="submit" value="Add another choice">
+                <div id="choices">
+                    Choice 1:<input type="text"><br>
+                    Choice 2:<input type="text"><br>
+                    Choice 3:<input type="text"><br>
+                    Choice 4:<input type="text"><br>
+                </div>
+                <input onclick="addfields();" type="submit" value="Add another choice">
                 <input type="submit" value="Submit">
             </form>
 		    
@@ -47,6 +49,7 @@
 		<script type="text/javascript" src="common/ajax-functions.js"></script>
 		<script type="text/javascript" src="controllers/clickController.client.js"></script>
 		<script type="text/javascript" src="controllers/userController.client.js"></script>
+		<script type="text/javascript" src="config/addfield.js"></script>
 	</body>
 
 </html>
