@@ -70,6 +70,6 @@ module.exports = function (app, passport) {
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
 		
-	app.route('/submit')
+	app.route('/createpoll')
 		.post(isLoggedIn, pollHandler.addPoll);
 };
