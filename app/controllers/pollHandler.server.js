@@ -1,7 +1,7 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
-var id = 1;
+var id = "sean";
 
 function PollHandler () {
 
@@ -34,7 +34,7 @@ function PollHandler () {
 						if (err) {
 							throw err;
 						}
-						id = id++;
+						//id = id++;
 						return newPoll;
 					});
 				}
