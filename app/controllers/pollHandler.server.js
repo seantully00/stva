@@ -1,7 +1,7 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
-var id = "sean";
+var id = 1;
 
 function PollHandler () {
 
