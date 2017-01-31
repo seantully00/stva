@@ -74,7 +74,7 @@ module.exports = function (app, passport) {
 	app.route('/createpoll')
 		.post(isLoggedIn, pollHandler.addPoll)
 		.get(function (req, res) {
-			res.redirect('success.html');
+			res.redirect('/success');
 		});
 		
 };
