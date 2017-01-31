@@ -26,9 +26,9 @@ function PollHandler () {
 					var newPoll = new Poll();
 
 					newPoll.poll.id = id;
-					newPoll.poll.question = req.poll.question;
-					newPoll.poll.creator  = req.poll.creator;
-					newPoll.poll.choices  = req.poll.choices;
+					newPoll.poll.question = req.question;
+					//newPoll.poll.creator  = req.creator;
+					//newPoll.poll.choices  = req.choices;
 
 					newPoll.save(function (err) {
 						if (err) {
