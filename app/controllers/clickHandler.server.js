@@ -1,8 +1,8 @@
 'use strict';
 
-var Users = require('../models/users.js');
+var Polls = require('../models/polls.js');
 
-function ClickHandler () {
+function Pollandler () {
 
 	this.getClicks = function (req, res) {
 		Users
