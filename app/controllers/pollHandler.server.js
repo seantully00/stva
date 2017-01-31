@@ -16,7 +16,8 @@ function PollHandler () {
 	};
 
 	this.addPoll = function (req, res) {
-		Poll.findOne({ 'poll.id': id }, function (err, poll) {
+		process.nextTick(function () {
+			Poll.findOne({ 'poll.id': id }, function (err, poll) {
 				if (err) {
 					return err;
 				}
@@ -40,8 +41,8 @@ function PollHandler () {
 					});
 				}
 			});
-	};
-
+	});
+};
 }
 
 module.exports = PollHandler;
