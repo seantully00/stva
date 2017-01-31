@@ -7,7 +7,7 @@ function PollHandler () {
 
 	this.getPolls = function (req, res) {
 		Poll
-			.findOne({ 'poll.id': req.poll.id }, { '_id': false })
+			.findOne({ 'poll.id': id }, { '_id': false })
 			.exec(function (err, result) {
 				if (err) { throw err; }
 
@@ -16,7 +16,7 @@ function PollHandler () {
 	};
 
 	this.addPoll = function (req, res) {
-		Poll.findOne({ 'poll.id': req.poll.id }, function (err, poll) {
+		Poll.findOne({ 'poll.id': id }, function (err, poll) {
 				if (err) {
 					return err;
 				}
