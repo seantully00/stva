@@ -1,6 +1,7 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
+var id = 1;
 
 function PollHandler () {
 
@@ -24,7 +25,7 @@ function PollHandler () {
 				} else {
 					var newPoll = new Poll();
 
-					newPoll.poll.id = req.poll.id;
+					newPoll.poll.id = id;
 					newPoll.poll.question = req.poll.question;
 					newPoll.poll.creator  = req.poll.creator;
 					newPoll.poll.choices  = req.poll.choices;
@@ -33,7 +34,7 @@ function PollHandler () {
 						if (err) {
 							throw err;
 						}
-
+						id = id++;
 						return newPoll;
 					});
 				}
