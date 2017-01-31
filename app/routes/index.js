@@ -68,4 +68,10 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, clickHandler.getClicks)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
+		
+	app.post('/', function(req, res){
+		var data = req.body;
+		res.send(data);
+});
+
 };
