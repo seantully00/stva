@@ -73,8 +73,8 @@ module.exports = function (app, passport) {
 		
 	app.route('/createpoll')
 		.post(isLoggedIn, pollHandler.addPoll)
-		.get(function (req, res) {
-			res.redirect('/success');
-		});
+		.get(isLoggedIn, function (req, res) {
+			res.sendFile(path + '/public/success.html');
+		});	
 		
 };
