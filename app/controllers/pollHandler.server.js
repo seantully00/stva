@@ -4,7 +4,7 @@ var Poll = require('../models/polls.js');
 
 function PollHandler () {
 
-	this.getPolls = function (req, res) {
+	/*this.getPolls = function (req, res) {
 		Poll
 			.findOne({ 'poll.id': id }, { '_id': false })
 			.exec(function (err, result) {
@@ -12,7 +12,7 @@ function PollHandler () {
 
 				res.json(result);
 			});
-	};
+	};*/
 
 	this.addPoll = function (req, res) {
 		var id = 1;
