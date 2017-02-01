@@ -1,7 +1,6 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
-var id = 1;
 
 function PollHandler () {
 
@@ -16,6 +15,7 @@ function PollHandler () {
 	};
 
 	this.addPoll = function (req, res) {
+		var id = 1;
 		process.nextTick(function () {
 			Poll.findOne({ 'poll.id': id }, function (err, poll) {
 				if (err) {
@@ -27,10 +27,10 @@ function PollHandler () {
 					var newPoll = new Poll();
 
 					newPoll.poll.id = id;
-					newPoll.poll.question = req.question;
+					newPoll.poll.question = req.body.question;
 					//newPoll.poll.creator  = twitter.username;
-					newPoll.poll.choices  = req.choices;
-					newPoll.poll.choices.count = 1;
+					//newPoll.poll.choices  = req.choices;
+					//newPoll.poll.choices.count = 1;
 
 					newPoll.save(function (err) {
 						if (err) {
