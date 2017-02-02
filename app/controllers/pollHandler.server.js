@@ -17,13 +17,9 @@ function PollHandler () {
 
 	this.addPoll = function (req, res) {
 		var id = 1;
-		process.nextTick(function () {
-			Poll.findOne({ 'poll.id': id }, function (err, poll) {
+		process.nextTick(function (err, poll) {
 				if (err) {
 					return err;
-				}
-				if (poll) {
-					return poll;
 				} else {
 					var newPoll = new Poll();
 
@@ -42,7 +38,6 @@ function PollHandler () {
 						return newPoll;
 					});
 				}
-			});
 	});
 };
 }
