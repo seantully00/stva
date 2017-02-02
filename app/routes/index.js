@@ -74,7 +74,7 @@ module.exports = function (app, passport) {
 	app.route('/success')
 		.post(pollHandler.addPoll)
 		.get(function (req, res) {
-			console.log(req.body);
+			//console.log(req.body);
 			res.sendFile(path + '/public/success.html');
 		});
 		
