@@ -71,7 +71,7 @@ module.exports = function (app, passport) {
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);*/
 		
-	app.route('/success')
+	app.route('/createpoll')
 		.post(pollHandler.addPoll)
 		.get(function (req, res) {
 			//console.log(req.body);
