@@ -4,6 +4,7 @@ var Poll = require('../models/polls.js');
 
 function PollHandler () {
 
+
 	/*this.getPolls = function (req, res) {
 		Poll
 			.findOne({ 'poll.id': id }, { '_id': false })

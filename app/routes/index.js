@@ -75,6 +75,7 @@ module.exports = function (app, passport) {
 		.post(isLoggedIn, pollHandler.addPoll)
 		.get(isLoggedIn, function (req, res) {
 			res.sendFile(path + '/public/success.html');
-		});	
+			console.log(req.body);
+		});
 		
 };
