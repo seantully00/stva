@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var Poll = new Schema({
 	poll: {
-		id: String,
+		//id: String,
 		question: String,
         creator: String,
         choices : [{
