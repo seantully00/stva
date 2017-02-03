@@ -77,7 +77,7 @@ module.exports = function (app, passport) {
 	app.route('/success')
 		.get(function (req, res) {
 		console.dir(req.body);
-		res.sendFile(path + '/public/success.html');
+		res.redirect('/success');
 		});
 
 		
