@@ -74,13 +74,10 @@ module.exports = function (app, passport) {
 	app.route('/createpoll')
 		.post(pollHandler.addPoll);
 		
-	app.route('/success', function(req, res){
-    	console.log('POST /');
-    	console.dir('question: ' + req.body.question +  ' choice: ' + req.body.choice1);
-    	res.sendFile(path + '/public/success.html');
-		//.get(function (req, res) {
+	app.route('/success')
+		.get(function (req, res) {
 		//console.dir(req.body);
-		//res.sendFile(path + '/public/success.html');
+		res.sendFile(path + '/public/success.html');
 		});
 
 		

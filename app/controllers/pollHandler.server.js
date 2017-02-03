@@ -26,7 +26,7 @@ function PollHandler () {
 					//newPoll.poll.id = id;
 					newPoll.poll.question = req.body.question;
 					//newPoll.poll.creator  = twitter.username;
-					newPoll.poll.choice  = req.body.choice1;
+					newPoll.poll.choices.push(req.body.choice);
 					//newPoll.poll.choices.count = 1;
 					//id++;
 
