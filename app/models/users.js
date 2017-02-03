@@ -18,9 +18,7 @@ var User = new Schema({
         username: String,
         displayName: String,
    },
-   allpolls: { 
-       polls: [String]
-   }
+   polls: [String]
 });
 
 module.exports = mongoose.model('User', User);

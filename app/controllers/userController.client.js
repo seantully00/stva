@@ -30,7 +30,7 @@
       }
 
       if (profilePolls !== null) {
-         updateHtmlElement(userObject, profilePolls, 'allpolls');   
+         updateHtmlElement(userObject, profilePolls, 'polls');   
       }
 
    }));

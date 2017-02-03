@@ -36,7 +36,7 @@ function PollHandler () {
 						if (err) {
 							throw err;
 						}
-						User.findOne({ allpolls: newPoll.poll.question })
+						User.findOne({ polls: newPoll.poll.question })
 							.populate('creator', 'displayName') // only return the Persons name
 							.exec(function (err, story) {
 							if (err) {
