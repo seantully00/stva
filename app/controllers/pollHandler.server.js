@@ -28,6 +28,7 @@ function PollHandler () {
 					newPoll.poll.question = req.body.question;
 					newPoll.poll.creator  = User._id;
 					newPoll.poll.choices.push(req.body.choices);
+					User.allpolls.polls.push(req.body.question);
 					//newPoll.poll.choices.count = 1;
 					//id++;
 					
@@ -35,7 +36,7 @@ function PollHandler () {
 						if (err) {
 							throw err;
 						}
-						newPoll.findOne({ question: newPoll.poll.question })
+						User.findOne({ allpolls: newPoll.poll.question })
 							.populate('creator', 'displayName') // only return the Persons name
 							.exec(function (err, story) {
 							if (err) {
