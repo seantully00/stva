@@ -28,7 +28,7 @@ function PollHandler () {
 					newPoll.poll.question = req.body.question;
 					newPoll.poll.creator  = User._id;
 					newPoll.poll.choices.push(req.body.choices);
-					User.allpolls.polls.push(req.body.question);
+					User.polls = req.body.question;
 					//newPoll.poll.choices.count = 1;
 					//id++;
 					
