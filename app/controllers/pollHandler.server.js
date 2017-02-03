@@ -1,6 +1,7 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
+var User = require('../models/users');
 
 function PollHandler () {
 
@@ -25,20 +26,26 @@ function PollHandler () {
 
 					//newPoll.poll.id = id;
 					newPoll.poll.question = req.body.question;
-					//newPoll.poll.creator  = twitter.username;
+					newPoll.poll.creator  = User._id;
 					newPoll.poll.choices.push(req.body.choices);
 					//newPoll.poll.choices.count = 1;
 					//id++;
-
+					
 					newPoll.save(function (err) {
 						if (err) {
 							throw err;
 						}
-						//id = id++;
+						newPoll.findOne({ question: newPoll.poll.question })
+							.populate('creator', 'displayName') // only return the Persons name
+							.exec(function (err, story) {
+							if (err) {
+								throw err;
+							}
+								});	
 						return newPoll;
 					});
-				}
-	});
+}
+});
 };
 }
 
