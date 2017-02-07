@@ -11,7 +11,7 @@ var Poll = new Schema({
         creator: String,
         choices : [{
             choice : String,
-            count : Number
+            //count : Number
         }]
 	}
 });
