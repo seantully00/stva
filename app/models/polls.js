@@ -8,7 +8,7 @@ var Poll = new Schema({
 	poll: {
 		//id: String,
 		question: String,
-        creator: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+        creator: String,
         choices : [{
             choice : String,
             count : Number

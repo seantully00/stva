@@ -1,7 +1,7 @@
 'use strict';
 
 var Poll = require('../models/polls.js');
-//var User = require('userController.client.js');
+//var User = require('../models/users.js');
 
 function PollHandler () {
 
@@ -26,9 +26,9 @@ function PollHandler () {
 
 					//newPoll.poll.id = id;
 					newPoll.poll.question = req.body.question;
-					newPoll.poll.creator  = displayName;
-					newPoll.poll.choices.push(req.body.choices);
-					User.polls = req.body.question;
+					//newPoll.poll.creator  = displayName;
+					newPoll.poll.choices[0].choice = req.body.choice[0];
+					//User.polls = req.body.question;
 					//newPoll.poll.choices.count = 1;
 					//id++;
 					
