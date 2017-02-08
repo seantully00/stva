@@ -2,7 +2,8 @@
 
 var Poll = require('../models/polls.js');
 var User = require('../models/users.js');
-var choicearray2 = [[]];
+var choicearray2 = [];
+
 
 function PollHandler () {
 
@@ -30,10 +31,8 @@ function PollHandler () {
 					//newPoll.poll.creator  = displayName;
 					var choicearray = req.body.choices.split(",");
 					for (var i=0; i<choicearray.length; i++) {
-						for (var j=0; j<2; j++) {
-							choicearray2[i]["Choice"] = choicearray[i];
-							choicearray2[i]["Count"] = 0;
-						}
+							var newchoice = {choice: choicearray[i], count: 0};
+							choicearray2.push(newchoice);
 					}
 					newPoll.poll.choices = choicearray2;
 					//User.polls = req.body.question;
