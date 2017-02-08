@@ -29,7 +29,7 @@ function PollHandler () {
 					newPoll.poll.question = req.body.question;
 					//newPoll.poll.creator  = displayName;
 					var choicearray = req.body.choices.split(",");
-					for (i=0; i<choicearray.length; i++) {
+					for (var i=0; i<choicearray.length; i++) {
 							choicearray2[i].push(choicearray[i]);
 							choicearray2[i].push(0);
 					}
