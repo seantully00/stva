@@ -31,8 +31,8 @@ function PollHandler () {
 					var choicearray = req.body.choices.split(",");
 					for (var i=0; i<choicearray.length; i++) {
 						for (var j=0; j<2; j++) {
-							choicearray2[i][j].push(choicearray[i]);
-							choicearray2[i][j].push(0);
+							choicearray2[i][j] = choicearray[i];
+							choicearray2[i][j] = 0;
 						}
 					}
 					newPoll.poll.choices = choicearray2;
