@@ -34,8 +34,19 @@ function PollHandler () {
 							choicearray2.push(newchoice);
 					}
 					newPoll.poll.choices = choicearray2;
-					//User.polls = req.body.question;
 					
+					var item = req.body.question;
+ 
+					// find by document id and update
+					User.findByIdAndUpdate(
+    					req.user._id,
+    					{$push: {polls: item}},
+    					{safe: true, upsert: true},
+    					function(err, model) {
+        					console.log(err);
+    					}
+					);
+ 
 					newPoll.save(function (err) {
 						if (err) {
 							throw err;
