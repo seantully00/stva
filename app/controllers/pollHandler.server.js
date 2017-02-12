@@ -26,9 +26,8 @@ function PollHandler () {
 				} else {
 					var newPoll = new Poll();
 
-					//newPoll.poll.id = id;
 					newPoll.poll.question = req.body.question;
-					//newPoll.poll.creator  = displayName;
+					newPoll.poll.creator  = req.user._id;
 					var choicearray = req.body.choices.split(",");
 					for (var i=0; i<choicearray.length; i++) {
 							var newchoice = {choice: choicearray[i], count: 0};
@@ -36,8 +35,6 @@ function PollHandler () {
 					}
 					newPoll.poll.choices = choicearray2;
 					//User.polls = req.body.question;
-					//newPoll.poll.choices.count = 1;
-					//id++;
 					
 					newPoll.save(function (err) {
 						if (err) {
