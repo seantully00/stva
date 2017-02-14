@@ -26,3 +26,4 @@ var ajaxFunctions = {
       xmlhttp.send();
    }
 };
+
