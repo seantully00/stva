@@ -1,6 +1,3 @@
-
-var Handlebars = require('handlebars');
-
 document.addEventListener("DOMContentLoaded", function() {
     var source = document.querySelector("#poll-template").innerHTML;
 		//Compile into a template
