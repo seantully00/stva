@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		//Compile into a template
 		var template = Handlebars.compile(source);
 		
-		var title = "Poll Title";
+		var context = { "title": "poll title" };
 		
-		var html = template(title);
+		var html = template(context);
 		
 		document.querySelector("#poll-results").innerHTML = html;
 		
