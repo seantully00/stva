@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var source = document.querySelector("#poll-template").innerHTML;
+    var source = document.getElementById("poll-template").innerHTML;
 		//Compile into a template
 		var template = Handlebars.compile(source);
 		
@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		var html = template(context);
 		
-		source = html;
-		
-		//document.querySelector("#poll-results").innerHTML = html;
+		document.getElementById("poll-results").innerHTML = html;
 		
 });
