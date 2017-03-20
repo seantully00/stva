@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-
+	
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+	
 	<head>
 		<title>Votejere - A voting app</title>
 		
@@ -9,6 +11,13 @@
 	</head>
 
 	<body>
+		
+		<script id="polls-profile" type="text/x-handlebars-template">
+			<div id="poll" class="poll">
+				<h1>{{title}}</h1>
+			</div>
+		</script>
+		
 		<div class="container">
 			<!--<div class="github-profile">
 				<img src="/public/img/gh-mark-32px.png" alt="github logo" />
@@ -31,6 +40,7 @@
 		
 		<script type="text/javascript" src="common/ajax-functions.js"></script>
 		<script type="text/javascript" src="controllers/userController.client.js"></script>
+		<script type="text/javascript" src="controllers/handlebars-profile.js"></script>
 	</body>
 
 </html>
