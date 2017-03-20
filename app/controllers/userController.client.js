@@ -29,9 +29,9 @@
          updateHtmlElement(userObject, profileUsername, 'username');   
       }
 
-      if (profilePolls !== null) {
-         updateHtmlElement(userObject, profilePolls, 'polls');   
-      }
+      //if (profilePolls !== null) {
+        // updateHtmlElement(userObject, profilePolls, 'polls');   
+      //}
 
    }));
 })();
