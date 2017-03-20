@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var source = document.getElementById("polls").innerHTML;
+    var source = document.getElementById("profile-polls").innerHTML;
 		//Compile into a template
 		var template = Handlebars.compile(source);
 		
@@ -7,6 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		var html = template(context);
 		
-		document.getElementById("profile-polls").innerHTML = html;
+		document.getElementById("polls").innerHTML = html;
 		
 });
