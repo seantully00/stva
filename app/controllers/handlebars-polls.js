@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 		
 		var html = template(context);
 		
-		document.querySelector("#poll-results").innerHTML = html;
+		source = html;
+		
+		//document.querySelector("#poll-results").innerHTML = html;
 		
 });
