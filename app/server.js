@@ -13,7 +13,7 @@ var exphbs  = require('express-handlebars');
 
 var app = express();
 
-app.engine('handlebars', exphbs({defaultLayout: 'main',extname:'.handlebars'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main',extname:'.handlebars',layoutsDir:'/views/layouts'}));
 app.set('views', __dirname +'/views');
 app.set('view engine', 'handlebars');
 
