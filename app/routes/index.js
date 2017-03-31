@@ -44,8 +44,8 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.find({"twitter.username":req.params.id}, function(err, user) {
-				console.log(user)
-				user = user.toJSON();
+				console.log(user);
+				user = JSON.stringify(user);
 				res.render('profile',{user:user, time:Date.now(), layout:false});
 			})
 			//res.sendFile(path + '/public/profile.html');
