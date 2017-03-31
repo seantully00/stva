@@ -45,7 +45,7 @@ module.exports = function (app, passport) {
 			User.find({'twitter.username':req.params.id}, function(user) {
 				res.render('profile',{user:user});
 			})
-			res.sendFile(path + '/public/profile.html');
+			//res.sendFile(path + '/public/profile.html');
 		});
 		
 	app.route('/createpoll')
