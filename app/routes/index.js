@@ -1,6 +1,6 @@
 'use strict';
 
-var User = require('./models/users')
+var User = require('../models/users')
 
 var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
