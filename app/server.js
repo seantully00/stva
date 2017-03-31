@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var routes = require('/routes/index.js');
+var routes = require('./routes/index.js');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
@@ -16,16 +16,16 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 require('dotenv').load();
-require('/config/passport')(passport);
+require('./config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
-app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
-app.use('/public', express.static(process.cwd() + '/public'));
-app.use('/common', express.static(process.cwd() + '/app/common'));
+//app.use('/controllers', './controllers');
+//app.use('/public', '/public');
+//app.use('/common', './common');
 
-app.use(bodyParser.urlencoded({ extended: false })) 
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json());
 
