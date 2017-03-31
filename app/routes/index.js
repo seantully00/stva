@@ -43,7 +43,7 @@ module.exports = function (app, passport) {
 	app.route('/profile/:id')
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
-			User.find({}, function(user) {
+			User.find({}, function(err, user) {
 				console.log(user);
 				res.render('profile',{data:user, layout:false});
 			})
