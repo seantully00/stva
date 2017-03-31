@@ -43,7 +43,7 @@ module.exports = function (app, passport) {
 	app.route('/profile/:id')
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
-			User.find({'twitter.username':req.params.id}, function(user) {
+			User.find({}, function(user) {
 				console.log(user);
 				res.render('profile',{data:user, layout:false});
 			})
