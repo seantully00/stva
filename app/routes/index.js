@@ -56,9 +56,9 @@ module.exports = function (app, passport) {
 			res.sendFile(path + '/public/createpoll.html');
 		});	
 
-	app.route('/api/:id')
+	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
-			res.json(req.user.twitter);
+			res.render("profile",{user:req.user, layout:false});
 		});
 
 	app.route('/auth/github')
