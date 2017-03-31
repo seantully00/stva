@@ -8,7 +8,13 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var connect = require('connect');
 
+var exphbs  = require('express-handlebars');
+
 var app = express();
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 require('dotenv').load();
 require('./app/config/passport')(passport);
 

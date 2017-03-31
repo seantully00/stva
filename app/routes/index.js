@@ -1,5 +1,7 @@
 'use strict';
 
+var User = require('./models/users')
+
 var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
@@ -38,8 +40,11 @@ module.exports = function (app, passport) {
 			res.redirect('/login');
 		});
 
-	app.route('/profile')
+	app.route('/profile/:id')
 		.get(isLoggedIn, function (req, res) {
+			User.find({'twitter.username':req.params.id}, function(user) {
+				res.render('profile',{user:user});
+			})
 			res.sendFile(path + '/public/profile.html');
 		});
 		
