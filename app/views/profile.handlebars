@@ -1,5 +1,9 @@
 <div>
 {{user.twitter.displayName}}
 <h2>Polls</h2>
-{{user.polls}}
+<div class="polls">
+{{#each user.polls}}
+<h3>{{user.polls}}</h3>
+{{/each}}
+</div>
 </div>
