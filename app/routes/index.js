@@ -21,7 +21,7 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/index.html');
+			res.render('index');
 		});
 
 	app.route('/login')
@@ -31,7 +31,7 @@ module.exports = function (app, passport) {
 		
 	app.route('/poll')
 		.get(function (req, res) {
-			res.sendFile(path + '/public/poll.html');
+			res.render('poll');
 		});	
 
 	app.route('/logout')
@@ -53,7 +53,7 @@ module.exports = function (app, passport) {
 		
 	app.route('/createpoll')
 		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/createpoll.html');
+			res.render('createpoll');
 		});	
 
 	app.route('/profile')
@@ -90,7 +90,7 @@ module.exports = function (app, passport) {
 	app.route('/success')
 		.get(function (req, res) {
 		//console.dir(req.body);
-		res.sendFile(path + '/public/success.html');
+		res.render('success');
 		});
 //agasg
 		
