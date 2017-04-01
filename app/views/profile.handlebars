@@ -1,5 +1,9 @@
 <div>
-{{user.twitter.displayName}}
+    			<div class="twitter-profile">
+				<img src="/public/img/Twitterbird.png" alt="twitter logo" />
+				<p><span>ID: </span><span id="profile-id" >{{user.twitter.id}}</span></p>
+				<p><span>Username: </span><span id="profile-username" {{user.twitter.username}}></span></p>
+				<p><span>Display Name: </span><span id="display-name" >{{user.twitter.displayName}}</span></p>
 <h2>Polls</h2>
 <div class="polls">
 {{#each user.polls}}
