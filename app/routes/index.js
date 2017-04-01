@@ -21,7 +21,11 @@ module.exports = function (app, passport) {
 
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
-			res.render('index');
+			console.log(req.params);
+			User.findOne({"twitter.username":req.params.id}, function(err, user) {
+				console.log(user);
+				res.render('/');
+			})
 		});
 
 	app.route('/login')
@@ -30,9 +34,13 @@ module.exports = function (app, passport) {
 		});
 		
 	app.route('/poll')
-		.get(function (req, res) {
-			res.render('poll');
-		});	
+		.get(isLoggedIn, function (req, res) {
+			console.log(req.params);
+			User.findOne({"twitter.username":req.params.id}, function(err, user) {
+				console.log(user);
+				res.render('poll');
+			})
+		});
 
 	app.route('/logout')
 		.get(function (req, res) {
@@ -45,16 +53,18 @@ module.exports = function (app, passport) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
 				console.log(user);
-				//user = JSON.stringify(user);
 				res.render('profile',{user:user, time:Date.now()});
 			})
-			//res.sendFile(path + '/public/profile.html');
 		});
 		
 	app.route('/createpoll')
 		.get(isLoggedIn, function (req, res) {
-			res.render('createpoll');
-		});	
+			console.log(req.params);
+			User.findOne({"twitter.username":req.params.id}, function(err, user) {
+				console.log(user);
+				res.render('createpoll');
+			})
+		});
 
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
