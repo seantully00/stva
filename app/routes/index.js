@@ -58,7 +58,7 @@ module.exports = function (app, passport) {
 
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
-			res.render("profile",{user:req.user, layout:false});
+			res.render("profile",{user:req.user});
 		});
 
 	app.route('/auth/github')
