@@ -24,7 +24,7 @@ module.exports = function (app, passport) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
 				console.log(user);
-				res.render('/');
+				res.redirect('index');
 			})
 		});
 
