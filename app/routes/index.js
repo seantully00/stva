@@ -2,8 +2,8 @@
 
 var User = require('../models/users')
 
-var path = __dirname;
-//var path = process.cwd();
+//var path = __dirname;
+var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
 
