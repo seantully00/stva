@@ -70,7 +70,7 @@ module.exports = function (app, passport) {
 			res.render("profile",{user:req.user});
 		});
 		
-	app.route('/poll:id')
+	app.route('/poll/:id')
 		.get(function (req, res) {
 			console.log(req.params);
 			Poll.findOne({"_id":req.params.id}, function(err, user) {
