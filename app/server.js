@@ -8,7 +8,6 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var connect = require('connect');
 var path = require('path');
-var handlebars = require('handlebars');
 
 var exphbs  = require('express-handlebars');
 
@@ -21,8 +20,16 @@ app.set('views', __dirname + '/views');
 //app.set('views', process.cwd() +'/views');
 app.set('view engine', 'handlebars');
 
-handlebars.registerHelper('graphics', function( dataset, id ) {
-  graphic( dataset, '#' + id );
+
+
+//Handlebars.registerHelper('graphics', function( dataset, id ) {
+ // graphic( dataset, '#' + id );
+//});
+
+var hbs = exphbs.create({
+  helpers: {
+    graphics: function(dataset, '#' + id); 
+  }
 });
 
 require('dotenv').load();
