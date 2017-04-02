@@ -63,7 +63,8 @@ function PollHandler () {
         					console.log(err);
     					}
 					);			
-						
+						choicearray2 = [];
+						choicearray = [];
 						return newPoll;
 						
 
