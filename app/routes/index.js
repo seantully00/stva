@@ -2,7 +2,8 @@
 
 var User = require('../models/users')
 
-var path = process.cwd();
+var path = __dirname;
+//var path = process.cwd();
 //var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
 
@@ -23,7 +24,6 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
-				console.log(user);
 				res.render('index');
 			})
 		});
@@ -37,7 +37,6 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
-				console.log(user);
 				res.render('poll');
 			})
 		});
@@ -61,7 +60,6 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
-				console.log(user);
 				res.render('createpoll');
 			})
 		});
