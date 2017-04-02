@@ -28,7 +28,7 @@ app.set('view engine', 'handlebars');
 
 var hbs = exphbs.create({
   helpers: {
-    graphics: function(dataset, '#' + id); 
+    graphics: function(dataset, id); 
   }
 });
 
