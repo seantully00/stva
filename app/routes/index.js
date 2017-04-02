@@ -1,6 +1,7 @@
 'use strict';
 
-var User = require('../models/users')
+var User = require('../models/users');
+var Poll = require('../models/polls');
 
 //var path = __dirname;
 var path = process.cwd();
@@ -33,13 +34,13 @@ module.exports = function (app, passport) {
 			res.sendFile(path + '/public/login.html');
 		});
 		
-	app.route('/poll')
+	/*app.route('/poll')
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
 				res.render('poll');
 			})
-		});
+		});*/
 
 	app.route('/logout')
 		.get(function (req, res) {
@@ -67,6 +68,14 @@ module.exports = function (app, passport) {
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
 			res.render("profile",{user:req.user});
+		});
+		
+	app.route('/poll:id')
+		.get(function (req, res) {
+			console.log(req.params);
+			Poll.findOne({"_id":req.params.id}, function(err, user) {
+				res.render("poll",{poll:req.poll});	
+			})
 		});
 
 	app.route('/auth/github')
