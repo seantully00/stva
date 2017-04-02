@@ -35,17 +35,12 @@ function PollHandler () {
 					}
 					newPoll.poll.choices = choicearray2;
 					
-					var poll_id = newPoll.poll.id;
- 
+					//newPoll.save(function(err,poll) {
+					//	console.log(poll.id);
+					//	var poll_id = poll.poll.id;
+					
 					// find by document id and update
-					User.findByIdAndUpdate(
-    					req.user._id,
-    					{$push: {polls: poll_id}},
-    					{safe: true, upsert: true},
-    					function(err, model) {
-        					console.log(err);
-    					}
-					);
+
  
 					newPoll.save(function (err) {
 						if (err) {
@@ -58,7 +53,19 @@ function PollHandler () {
 								throw err;
 							}
 								});	
+								
+						User.findByIdAndUpdate(
+    					req.user._id,
+    					{$push: {polls: newPoll._id}},
+    					{safe: true, upsert: true},
+    					function(err, model) {
+        					console.log(err);
+    					}
+					);			
+						
 						return newPoll;
+						
+
 					});
 }
 });
