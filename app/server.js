@@ -16,7 +16,7 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main',extname:'.handlebars',layoutsDir:'./views/layouts'}));
-app.set('views', 'app/views');
+app.set('views', __dirname+'app/views');
 app.set('view engine', 'handlebars');
 
 require('dotenv').load();
