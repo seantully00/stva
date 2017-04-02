@@ -21,7 +21,7 @@ app.set('views', __dirname + '/views');
 //app.set('views', process.cwd() +'/views');
 app.set('view engine', 'handlebars');
 
-Handlebars.registerHelper('graphics', function( dataset, id ) {
+handlebars.registerHelper('graphics', function( dataset, id ) {
   graphic( dataset, '#' + id );
 });
 
