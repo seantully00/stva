@@ -50,7 +50,3 @@ d3.tsv("data.tsv", function(d) {
       
     return svg;
 });
-
-Handlebars.registerHelper('graphics', function( dataset, id ) {
-  graphic( dataset, '#' + id );
-});
