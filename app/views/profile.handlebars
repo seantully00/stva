@@ -6,8 +6,9 @@
 				<p><span>Display Name: </span><span id="display-name" >{{user.twitter.displayName}}</span></p>
 <h2>Polls</h2>
 <div class="twitter-profile">
+    <h2>Polls</h2>
 {{#each user.polls}}
-<h3><a href = "https://stvapp.herokuapp.com/poll/{{ this }}">{{ this }}</a></h3>
+<h3><a href = "https://stvapp.herokuapp.com/poll/{{ this }}">{{ this.poll.question }}</a></h3>
 {{/each}}
 </div>
-</div>
+</div>2
