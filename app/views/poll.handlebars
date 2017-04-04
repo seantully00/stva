@@ -1,4 +1,8 @@
 <div>
 {{poll.poll.question}}
+
+{{#each poll.poll.choices}}
+<h3>{{ this }}</h3>
+{{/each}}
 </div>
 
