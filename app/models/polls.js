@@ -8,7 +8,10 @@ var Poll = new Schema({
 	poll: {
 		//id: String,
 		question: String,
-        creator: String,
+        creator: {
+            id: String,
+            username: String
+        },
         choices : [{
             choice : String,
             count : Number
