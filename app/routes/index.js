@@ -61,7 +61,7 @@ module.exports = function (app, passport) {
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
 			User.findOne({"twitter.username":req.params.id}, function(err, user) {
-				res.redirect('createpoll');
+				res.render('createpoll');
 			})
 		});
 
