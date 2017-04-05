@@ -28,7 +28,8 @@ function PollHandler () {
 					var newPoll = new Poll();
 
 					newPoll.poll.question = req.body.question;
-					newPoll.poll.creator  = req.user._id;
+					newPoll.poll.creator.id  = req.user._id;
+					newPoll.poll.creator.username  = req.user.twitter.username;
 					choicearray = req.body.choices.split(",");
 					for (var i=0; i<choicearray.length; i++) {
 							var newchoice = {choice: choicearray[i], count: 0};
