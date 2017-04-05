@@ -24,8 +24,9 @@ module.exports = function (app, passport) {
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
-			Poll.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, post) {
-				res.render('index');
+			Poll.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, poll) {
+				console.log(poll);
+				res.render('index',{poll:poll});
 			})
 		});
 
