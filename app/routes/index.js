@@ -24,7 +24,7 @@ module.exports = function (app, passport) {
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
 			console.log(req.params);
-			User.findOne({"twitter.username":req.params.id}, function(err, user) {
+			Poll.findOne({}, {}, { sort: { 'created_at' : -1 } }, function(err, post) {
 				res.render('index');
 			})
 		});

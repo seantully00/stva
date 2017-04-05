@@ -21,15 +21,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'handlebars');
 
 
-
-//Handlebars.registerHelper('graphics', function( dataset, id ) {
- // graphic( dataset, '#' + id );
-//});
-
 var hbs = exphbs.create({
-  helpers: {
-    graphics: function(dataset, id){} 
-}
+    // Specify helpers which are only registered on this instance. 
+    helpers: {
+        vote: function () { return 'FOO!'; }
+    }
 });
 
 require('dotenv').load();
