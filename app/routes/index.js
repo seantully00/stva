@@ -14,7 +14,7 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			res.redirect('/login');
+			res.render('login');
 		}
 	}
 
@@ -32,7 +32,10 @@ module.exports = function (app, passport) {
 
 	app.route('/login')
 		.get(function (req, res) {
-			res.sendFile(path + '/public/login.html');
+			console.log(req.params);
+			Poll.find({}, {}, { sort: { 'created_at' : -1 } }, function(err, poll) {
+				console.log(poll);
+			res.render('login',{poll:poll});
 		});
 		
 	/*app.route('/poll')

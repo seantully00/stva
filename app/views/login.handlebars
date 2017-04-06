@@ -1,0 +1,24 @@
+<div class="container">	
+			<div class="login">
+				<img src="/img/vote.jpeg" />
+				<br />
+				<p class="clementine-text">Votejere</p>
+				<!--<a href="/auth/github">
+					<div class="btn" id="login-btn">
+						<img src="/public/img/github_32px.png" alt="github logo" />
+						<p>LOGIN WITH GITHUB</p>
+					</div>
+				</a>-->
+				<a href="/auth/twitter">
+					<div class="btn" id="login-btn">
+						<img src="/img/Twitterbird.png" alt="twitter logo" />
+						<p>LOGIN WITH TWITTER</p>
+					</div>
+				</a>
+				<div>
+		{{#each poll}}
+<h3><a href = "https://stvapp.herokuapp.com/poll/{{ this.id }}">{{ this.poll.question }} | {{ this.poll.creator.username }}</a></h3>
+{{/each}}
+</div>
+			</div>
+		</div>
