@@ -82,6 +82,14 @@ module.exports = function (app, passport) {
 				res.render("poll",{poll:poll});	
 			})
 		});
+		
+	app.route('/poll/:id')
+		.delete(function (req, res) {
+			Poll.findOne({"_id":req.params.id}, function(err, poll){
+				poll.remove();
+				res.render("profile",{user:req.user});
+			})
+		});
 
 	app.route('/auth/github')
 		.get(passport.authenticate('github'));
