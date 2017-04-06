@@ -36,6 +36,7 @@ module.exports = function (app, passport) {
 			Poll.find({}, {}, { sort: { 'created_at' : -1 } }, function(err, poll) {
 				console.log(poll);
 			res.render('login',{poll:poll});
+			})
 		});
 		
 	/*app.route('/poll')
