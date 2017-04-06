@@ -35,7 +35,7 @@ module.exports = function (app, passport) {
 			console.log(req.params);
 			Poll.find({}, {}, { sort: { 'created_at' : -1 } }, function(err, poll) {
 				console.log(poll);
-			res.render('login',{poll:poll});
+			res.render('login',{poll:poll, layout:'loggedout'});
 			})
 		});
 		
