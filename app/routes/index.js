@@ -22,7 +22,7 @@ module.exports = function (app, passport) {
 	var pollHandler = new PollHandler();
 
 	app.route('/')
-		.get(isLoggedIn, function (req, res) {
+		.get(function (req, res) {
 			console.log(req.params);
 			Poll.find({}, {}, { sort: { 'created_at' : -1 } }, function(err, poll) {
 				console.log(poll);
