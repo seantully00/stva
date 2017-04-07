@@ -2,13 +2,13 @@
 {{poll.poll.question}}
 
 {{#each poll.poll.choices}}
-<h3>{{ this.choice }}<button>+1</button></h3>
+<h3>{{ this.choice }} | {{ this.count }}<button>+1</button></h3>
 
 {{/each}}
 
 <a class="twitter-share-button"
   href="https://twitter.com/intent/tweet?text=https://stvapp.herokuapp.com/poll/{{ poll.id }}">
-Tweet Your Poll</a>
+Tweet this Poll</a>
 
 
 </div>
