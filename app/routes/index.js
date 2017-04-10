@@ -78,7 +78,7 @@ module.exports = function (app, passport) {
 	app.route('/poll/:id')
 		.get(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
-				console.log(poll);
+				console.log(poll.poll.choices);
 				res.render("poll",{poll:poll});	
 			})
 		});
