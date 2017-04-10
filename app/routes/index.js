@@ -79,6 +79,7 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				console.log(poll.poll.choices);
+				poll.poll.choices.count++;
 				res.render("poll",{poll:poll});	
 			})
 		});
@@ -87,6 +88,7 @@ module.exports = function (app, passport) {
 		.post(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				console.log(poll.poll.choices);
+				
 				res.render("poll",{poll:poll});	
 			})
 		});	
