@@ -2,7 +2,7 @@
 {{poll.poll.question}}
 
 {{#each poll.poll.choices}}
-<h3>{{ this.choice }} | {{ this.count }} <form action="/poll/{{ poll.id }}/{{ this.choice.id }}" method="post"><input type="submit" value="+1"/>
+<h3>{{ this.choice }} | {{ this.count }} <form action="/poll/{{ poll.id }}/{{ this.choice.id }}" method="get"><input type="submit" value="+1"/>
 
 {{/each}}
 
