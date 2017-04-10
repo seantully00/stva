@@ -7,7 +7,8 @@
 <div class="twitter-profile">
     <h2>Polls</h2>
 {{#each user.polls}}
-<h3><a href = "https://stvapp.herokuapp.com/poll/{{ this }}">{{ this }}</a><button type="button" method="delete">Delete</button></h3>
+<h3><a href = "https://stvapp.herokuapp.com/poll/{{ this }}">{{ this }} | <form action="/profile/:id"><input type="submit" value="Delete"/>
+</form></h3>
 {{/each}}
 </div>
 </div>
