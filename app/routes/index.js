@@ -83,7 +83,7 @@ module.exports = function (app, passport) {
 			})
 		});
 		
-	app.route('/profile/:id')
+	app.route('/poll/:id')
 		.delete(function (req, res) {
 			console.log(req);
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
