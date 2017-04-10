@@ -83,6 +83,14 @@ module.exports = function (app, passport) {
 			})
 		});
 		
+	app.route('/poll/:id/:choice')
+		.post(function (req, res) {
+			Poll.findOne({"_id":req.params.id}, function(err, poll){
+				console.log(poll);
+				res.render("poll",{poll:poll});	
+			})
+		});	
+		
 	app.route('/poll/:id')
 		.delete(function (req, res) {
 			console.log(req);
