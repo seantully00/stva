@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var User = require('../models/users');
 var Poll = require('../models/polls');
 
-var Choices = new Schema({
+var Choice = new Schema({
 	choices : [{
             choice : String,
                 count : Number
