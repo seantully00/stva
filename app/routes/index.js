@@ -79,7 +79,7 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				console.log(poll.poll.choices);
-				poll.poll.choices.count++;
+				//poll.poll.choices.count++;
 				res.render("poll",{poll:poll});	
 			})
 		});
@@ -87,11 +87,12 @@ module.exports = function (app, passport) {
 	app.route('/poll/:id/:choice')
 		.post(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
-				console.log(poll.poll.choices);
-				
+				Poll.findByIdAndUpdate({"_id":req.params.choices.id}, {$inc: {next:1}}, function (err, data) {
+
+})
 				res.render("poll",{poll:poll});	
 			})
-		});	
+			});	
 		
 	app.route('/poll/:id')
 		.delete(function (req, res) {
