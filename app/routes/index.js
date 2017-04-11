@@ -2,6 +2,7 @@
 
 var User = require('../models/users');
 var Poll = require('../models/polls');
+var Choices = require('../models/choices');
 
 //var path = __dirname;
 var path = process.cwd();
@@ -86,13 +87,11 @@ module.exports = function (app, passport) {
 		
 	app.route('/poll/:id/:choice')
 		.post(function (req, res) {
-			//Poll.findOne({"_id":req.params.id}, function(err, poll){
-				console.log(req);
-				Poll.findOneAndUpdate({"_id": req.params.id, "poll.choices._id": req.params.choice}, {$inc : {'poll.choices[count] : 1}}), function(err, poll) {
+			Poll.findOne({"_id":req.params.id}, function(err, poll){
+				Choices.findOneAndUpdate({"_id": req.params.choice}, {$inc : {'choices.count' : 1}});
 				res.render("poll",{poll:poll});		
-				}
+				})
 				//console.log(poll.poll.choices);
-				//})
 			});	
 		
 	app.route('/poll/:id')
