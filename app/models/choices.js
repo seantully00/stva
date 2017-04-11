@@ -12,4 +12,4 @@ var Choices = new Schema({
         }]
 });
 
-module.exports = mongoose.model('Poll', Poll);
+module.exports = mongoose.model('Choice', Choice);
