@@ -91,7 +91,7 @@ module.exports = function (app, passport) {
 				console.log(poll.poll.choices);
 				Poll.findByIdAndUpdate({"_id":poll.poll.choices._id}, {$inc: {count:1}}, function (err, data) {
 
-//})
+})
 				res.render("poll",{poll:poll});	
 			})
 			});	
