@@ -98,6 +98,7 @@ module.exports = function (app, passport) {
 		.delete(function (req, res) {
 			console.log(req);
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
+				console.log(poll);
 				poll.remove();
 				res.render("profile",{user:req.user});
 			})
