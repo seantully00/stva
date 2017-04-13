@@ -102,6 +102,7 @@ module.exports = function (app, passport) {
 				//console.log(poll.poll.choices);
 			});	
 
+
 	app.route('/auth/github')
 		.get(passport.authenticate('github'));
 
