@@ -1,7 +1,7 @@
 <div>
-{{poll.poll.question}}
+{{poll.question}}
 
-{{#each poll.poll.choices}}
+{{#each poll.choices}}
 <h3>{{ this.choice }} | {{ this.count }} <form action="/poll/{{ ../poll.id }}/{{ this.id }}" method="post"><input type="submit" value="+1"/>
 
 {{/each}}
