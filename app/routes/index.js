@@ -91,7 +91,7 @@ module.exports = function (app, passport) {
 				if (poll) {
 					poll.remove();
 				};
-			User.findOne({"_id":req.user.id}, function(err, user){
+			User.findById(req.user._id, function(err, user){
 				var index = user.polls.indexOf(req.params.id);
 				if (index > -1) {
     				user.polls.splice(index, 1);
