@@ -73,7 +73,20 @@ module.exports = function (app, passport) {
 		
 	app.route('/poll')
 		.post(isLoggedIn, function (req, res) {
-			console.log(req.body);	
+			console.log(req.body);
+			var newpoll = {question : req.body.question};
+			newpoll.choices = {};
+			var choices = req.body.choices.split(',');
+			choices.forEach(function(item) {
+				newpoll.choices[item]=0;
+			})
+			newpoll.creator = req.user._id;
+			Poll.create(newpoll, function(err, poll) {
+				if (err) {
+					console.log(err)
+				}
+				res.redirect('/poll/' + poll._id)
+			});
 		});
 		
 	app.route('/profile')

@@ -9,10 +9,9 @@ var Poll = new Schema({
 		//id: String,
 		question: String,
         creator: {
-            id: String,
-            username: String
+            type: Schema.Types.ObjectId, ref: 'User'
         },
-        choices : [ ]
+        choices :  {}
 	}
 });
 
