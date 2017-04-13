@@ -128,6 +128,7 @@ module.exports = function (app, passport) {
 				Poll.findOne({"_id": req.params.id}, function(err, poll) {
 					poll.choices[req.body.choice]++;
 					console.log(poll);
+					poll.markModified('choices');
 					poll.save();
 					res.redirect('/poll/' + poll._id);
 				})
