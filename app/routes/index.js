@@ -97,6 +97,7 @@ module.exports = function (app, passport) {
 				console.log(index);
 				if (index > -1) {
     				user.polls.splice(index, 1);
+    				user.save();
 				}
 				res.render("profile",{user:req.user});
 			})	
