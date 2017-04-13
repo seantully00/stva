@@ -7,8 +7,7 @@
 <div class="twitter-profile">
     <h2>Polls</h2>
 {{#each user.polls}}
-<h3><a href = "/poll/{{ this }}">{{ this }}</a> | <form action="/poll/{{ this }}" method="delete"><input type="submit" value="Delete"/>
-</form></h3>
+<h3><a href = "/poll/{{ this }}">{{ this }}</a> | <button onclick="deletepoll()">Delete</button></h3>
 {{/each}}
 </div>
 </div>
