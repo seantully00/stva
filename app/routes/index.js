@@ -97,7 +97,7 @@ module.exports = function (app, passport) {
 		
 	app.route('/poll/:id')
 		.get(function (req, res) {
-			Poll.findOne({"_id":req.params.id}, function(err, poll){
+			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
 				//poll.poll.choices.count++;
 				res.render("poll",{poll:poll});	

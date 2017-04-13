@@ -7,6 +7,7 @@ function deletepoll(id) {
 
 function vote(pollid, selection) {
     var xhr = new XMLHttpRequest();
+    console.log(pollid + ' ' + selection);
     xhr.open('POST', "/poll/" + pollid, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({choice:selection}));
