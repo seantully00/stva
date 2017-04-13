@@ -4,14 +4,13 @@
 			<p class="clementine-text">Create a Poll</p>
 		</div>
 		<div>
-		    <form method="post" class="createpoll"><br>
+		    <form method="post" action="/poll" class="createpoll"><br>
                 Question:<input type="text" name="question">
                 <div name="choices" id="choices">
                 	<label>Choices (comma-separated):</label>
                     <textarea type="text" name="choices"></textarea>
                 </div>
-                <input type="submit" href="/success" value="Submit">
-                <input type="hidden" name="resulturl" value="success.html">
+                <input type="submit" value="Submit">
             </form>
             <!--<input onclick="addfields()" type="submit" value="Add another choice">-->
 		</div>

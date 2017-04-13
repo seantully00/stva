@@ -12,10 +12,7 @@ var Poll = new Schema({
             id: String,
             username: String
         },
-        choices : [{
-            choice : String,
-                count : Number
-        }]
+        choices : [ ]
 	}
 });
 

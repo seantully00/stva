@@ -15,7 +15,7 @@ module.exports = function (app, passport) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
-			res.render('login');
+			res.redirect('/login');
 		}
 	}
 
@@ -70,7 +70,12 @@ module.exports = function (app, passport) {
 				res.render('createpoll');
 			})
 		});
-
+		
+	app.route('/poll')
+		.post(isLoggedIn, function (req, res) {
+			console.log(req.body);	
+		});
+		
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
 			res.render("profile",{user:req.user});
@@ -99,7 +104,7 @@ module.exports = function (app, passport) {
     				user.polls.splice(index, 1);
     				user.save();
 				}
-				res.render("profile",{user:req.user});
+				res.redirect('/profile');
 			})	
 			})
 		});
@@ -108,7 +113,7 @@ module.exports = function (app, passport) {
 		.post(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				Choice.findOneAndUpdate({"_id": req.params.choice}, {$inc : {'count' : 1}});
-				res.render("poll",{poll:poll});		
+				res.redirect('/poll');		
 				})
 				//console.log(poll.poll.choices);
 			});	
@@ -137,8 +142,8 @@ module.exports = function (app, passport) {
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);*/
 		
-	app.route('/createpoll')
-		.post(pollHandler.addPoll);
+//	app.route('/createpoll')
+	//	.post(pollHandler.addPoll);
 		
 	app.route('/success')
 		.get(function (req, res) {
