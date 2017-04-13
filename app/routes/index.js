@@ -121,16 +121,25 @@ module.exports = function (app, passport) {
 				res.redirect('/profile');
 			})	
 			})
+		})
+		.post(function (req, res) {
+			if (req.body.choice) {
+				Poll.findOne({"_id": req.params.id}, function(err, poll) {
+					poll.choices[req.body.choice]++;
+					poll.save();
+					res.redirect('/poll/' + poll._id);
+				})
+			}
 		});
 		
-	app.route('/poll/:id/:choice')
+	/*app.route('/poll/:id/:choice')
 		.post(function (req, res) {
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				Choice.findOneAndUpdate({"_id": req.params.choice}, {$inc : {'count' : 1}});
 				res.redirect('/poll');		
 				})
 				//console.log(poll.poll.choices);
-			});	
+			});*/
 
 
 	app.route('/auth/github')
