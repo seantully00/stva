@@ -123,9 +123,11 @@ module.exports = function (app, passport) {
 			})
 		})
 		.post(function (req, res) {
+			console.log(req.body);
 			if (req.body.choice) {
 				Poll.findOne({"_id": req.params.id}, function(err, poll) {
 					poll.choices[req.body.choice]++;
+					console.log(poll);
 					poll.save();
 					res.redirect('/poll/' + poll._id);
 				})
