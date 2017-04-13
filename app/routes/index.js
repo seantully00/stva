@@ -83,6 +83,14 @@ module.exports = function (app, passport) {
 				//poll.poll.choices.count++;
 				res.render("poll",{poll:poll});	
 			})
+		})
+		.delete(function (req, res) {
+			console.log(req);
+			Poll.findOne({"_id":req.params.id}, function(err, poll){
+				console.log(poll);
+				poll.remove();
+				res.render("profile",{user:req.user});
+			})
 		});
 		
 	app.route('/poll/:id/:choice')
@@ -93,16 +101,6 @@ module.exports = function (app, passport) {
 				})
 				//console.log(poll.poll.choices);
 			});	
-		
-	app.route('/poll/:id')
-		.delete(function (req, res) {
-			console.log(req);
-			Poll.findOne({"_id":req.params.id}, function(err, poll){
-				console.log(poll);
-				poll.remove();
-				res.render("profile",{user:req.user});
-			})
-		});
 
 	app.route('/auth/github')
 		.get(passport.authenticate('github'));
