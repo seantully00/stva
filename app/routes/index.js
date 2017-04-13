@@ -81,6 +81,7 @@ module.exports = function (app, passport) {
 				newpoll.choices[item]=0;
 			})
 			newpoll.creator = req.user._id;
+			console.log(newpoll);
 			Poll.create(newpoll, function(err, poll) {
 				if (err) {
 					console.log(err)
