@@ -85,10 +85,12 @@ module.exports = function (app, passport) {
 			})
 		})
 		.delete(function (req, res) {
-			console.log(req);
+			console.log(req.params);
 			Poll.findOne({"_id":req.params.id}, function(err, poll){
 				console.log(poll);
-				poll.remove();
+				if (poll) {
+					poll.remove();
+				};
 				res.render("profile",{user:req.user});
 			})
 		});
