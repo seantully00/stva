@@ -92,7 +92,9 @@ module.exports = function (app, passport) {
 					poll.remove();
 				};
 			User.findById(req.user._id, function(err, user){
+				console.log(user);
 				var index = user.polls.indexOf(req.params.id);
+				console.log(index);
 				if (index > -1) {
     				user.polls.splice(index, 1);
 				}
