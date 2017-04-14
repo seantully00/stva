@@ -86,7 +86,10 @@ module.exports = function (app, passport) {
 				if (err) {
 					console.log(err)
 				}
-			User.polls.push(poll._id);
+			User.findById(req.user._id, function(err, user){
+				console.log(user);
+				user.polls.push(poll._id);
+    			user.save();
 				res.redirect('/poll/' + poll._id)
 			});
 		});
