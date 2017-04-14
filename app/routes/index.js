@@ -3,6 +3,7 @@
 var User = require('../models/users');
 var Poll = require('../models/polls');
 var Choice = require('../models/choices');
+var d3 = require('d3');
 
 //var path = __dirname;
 var path = process.cwd();
@@ -105,7 +106,19 @@ module.exports = function (app, passport) {
 			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
 				//poll.poll.choices.count++;
-				res.render("poll",{poll:poll});	
+				res.render("poll",{
+					poll:poll,
+					helpers: {
+						chart: function(poll){
+							var chart = d3.select(".chart")
+							.selectAll("div")
+    						.data(poll)
+							.enter().append("div")
+							.style("width", function(d) { return d * 10 + "px"; })
+    						.text(function(d) { return d; });
+						}
+					}
+				});	
 			})
 		})
 		.delete(function (req, res) {
@@ -182,5 +195,6 @@ module.exports = function (app, passport) {
 		res.render('success');
 		});
 //agasg
+		
 		
 };

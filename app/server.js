@@ -8,6 +8,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var connect = require('connect');
 var path = require('path');
+var helpers = require('./helpers/helpers.js');
 
 var exphbs  = require('express-handlebars');
 
@@ -23,9 +24,7 @@ app.set('view engine', 'handlebars');
 
 var hbs = exphbs.create({
     // Specify helpers which are only registered on this instance. 
-    helpers: {
-        vote: function () { return 'FOO!'; }
-    }
+    helpers: helpers
 });
 
 require('dotenv').load();
