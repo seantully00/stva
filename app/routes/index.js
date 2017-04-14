@@ -110,12 +110,11 @@ module.exports = function (app, passport) {
 					poll:poll,
 					helpers: {
 						chart: function(poll){
+							console.log(poll);
 							var chart = d3.select(".chart")
-							.selectAll("div")
-    						.data(poll.choices)
-							.enter().append("div")
-							.style("width", function(d) { return d * 10 + "px"; })
-    						.text(function(d) { return d; });
+							.append("svg")
+							.attr("width",100)
+							.attr("height",100);
 						}
 					}
 				});	
