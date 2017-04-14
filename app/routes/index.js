@@ -92,6 +92,7 @@ module.exports = function (app, passport) {
     			user.save();
 				res.redirect('/poll/' + poll._id)
 			});
+			});
 		});
 		
 	app.route('/profile')
