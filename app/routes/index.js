@@ -86,6 +86,7 @@ module.exports = function (app, passport) {
 				if (err) {
 					console.log(err)
 				}
+			User.polls.push(poll._id);
 				res.redirect('/poll/' + poll._id)
 			});
 		});

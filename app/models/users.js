@@ -18,7 +18,7 @@ var User = new Schema({
         username: String,
         displayName: String,
    },
-   polls: [String]
+   polls: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 module.exports = mongoose.model('User', User);
