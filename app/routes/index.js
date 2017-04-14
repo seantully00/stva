@@ -111,7 +111,7 @@ module.exports = function (app, passport) {
 					helpers: {
 						chart: function(poll){
 							console.log(poll);
-							var chart = d3.select(".chart")
+							var chart = d3.select("#chart")
 							.append("svg")
 							.attr("width",100)
 							.attr("height",100);
