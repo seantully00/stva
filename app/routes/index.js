@@ -95,6 +95,31 @@ module.exports = function (app, passport) {
 			});
 			});
 		});
+
+//need to change this route to add choices to polls		
+	app.route('/addchoices')
+		.post(function (req, res) {
+			console.log(req.body);
+			var newpoll = {question : req.body.question};
+			newpoll.choices = {};
+			var choices = req.body.choices.split(',');
+			choices.forEach(function(item) {
+				newpoll.choices[item]=0;
+			})
+			newpoll.creator = req.user._id;
+			console.log(newpoll);
+			Poll.create(newpoll, function(err, poll) {
+				if (err) {
+					console.log(err)
+				}
+			User.findById(req.user._id, function(err, user){
+				console.log(user);
+				user.polls.push(poll._id);
+    			user.save();
+				res.redirect('/poll/' + poll._id)
+			});
+			});
+		});
 		
 	app.route('/profile')
 		.get(isLoggedIn, function (req, res) {
