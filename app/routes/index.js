@@ -108,7 +108,7 @@ module.exports = function (app, passport) {
 				//poll.poll.choices.count++;
 				res.render("poll",{
 					poll:poll,
-					helpers: {
+					/*helpers: {
 						chart: function(poll){
 							console.log(poll);
 							var chart = d3.select("#chart")
@@ -116,7 +116,7 @@ module.exports = function (app, passport) {
 							.attr("width",100)
 							.attr("height",100);
 						}
-					}
+					}*/
 				});	
 			})
 		})
