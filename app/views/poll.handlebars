@@ -10,10 +10,7 @@
     {{chart}}
 </div>
 
-<a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text=https://stvapp.herokuapp.com/poll/{{ poll.id }}">
-
-		<div>
+<div>
 		    <form method="post" action="/poll" class="createpoll"><br>
                 <div name="choices" id="choices">
                 	<label>Add new choices (comma-separated):</label>
@@ -21,8 +18,11 @@
                 </div>
                 <input type="submit" value="Submit">
             </form>
-            <!--<input onclick="addfields()" type="submit" value="Add another choice">-->
-		</div>    
+		</div>  
+
+<a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=https://stvapp.herokuapp.com/poll/{{ poll.id }}">
+
     
 Tweet this Poll</a>
 
