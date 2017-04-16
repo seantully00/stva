@@ -97,7 +97,7 @@ module.exports = function (app, passport) {
 		});
 
 //need to change this route to add choices to polls		
-	app.route('poll/:id/addchoices')
+	app.route('poll/addchoices/:id')
 		.post(function (req, res) {
 			var choices = {};
 			var newchoices = req.body.choices.split(',');
