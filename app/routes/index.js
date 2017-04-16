@@ -108,7 +108,7 @@ module.exports = function (app, passport) {
 			var idquery= { _id: req.params.id };
 			newchoices = Object.assign(poll.choices, newchoices);
 			console.log(newchoices);
-			this.update({ choices: newchoices });
+			poll.update({ choices: newchoices });
 			poll.markModified('choices');
 			poll.save();
 				res.redirect('/poll/' + poll._id);
