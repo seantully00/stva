@@ -1,94 +1,77 @@
 'use strict';
 
-var User = require('../models/users')
+var Poll = require('../models/polls.js');
+var User = require('../models/users.js');
+var choicearray2 = [];
+var choicearray = [];
 
-var path = process.cwd();
-//var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
-var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
 
-module.exports = function (app, passport) {
+function PollHandler () {
 
-	function isLoggedIn (req, res, next) {
-		if (req.isAuthenticated()) {
-			return next();
-		} else {
-			res.redirect('/login');
-		}
-	}
 
-	//var clickHandler = new ClickHandler();
-	var pollHandler = new PollHandler();
+	/*this.getPolls = function (req, res) {
+		Poll
+			.findOne({ 'poll.id': id }, { '_id': false })
+			.exec(function (err, result) {
+				if (err) { throw err; }
+				res.json(result);
+			});
+	};*/
 
-	app.route('/')
-		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/index.html');
-		});
+	this.addPoll = function (req, res) {
+		//var id = 1;
+		process.nextTick(function (err, poll) {
+				if (err) {
+					return err;
+				} else {
+					var newPoll = new Poll();
 
-	app.route('/login')
-		.get(function (req, res) {
-			res.sendFile(path + '/public/login.html');
-		});
-		
-	app.route('/poll')
-		.get(function (req, res) {
-			res.sendFile(path + '/public/poll.html');
-		});	
+					newPoll.poll.question = req.body.question;
+					newPoll.poll.creator.id  = req.user._id;
+					newPoll.poll.creator.username  = req.user.twitter.username;
+					choicearray = req.body.choices.split(",");
+					for (var i=0; i<choicearray.length; i++) {
+							var newchoice = {choice: choicearray[i], count: 0};
+							choicearray2.push(newchoice);
+					}
+					newPoll.poll.choices = choicearray2;
+					
+					//newPoll.save(function(err,poll) {
+					//	console.log(poll.id);
+					//	var poll_id = poll.poll.id;
+					
+					// find by document id and update
 
-	app.route('/logout')
-		.get(function (req, res) {
-			req.logout();
-			res.redirect('/login');
-		});
+ 
+					newPoll.save(function (err) {
+						if (err) {
+							throw err;
+						}
+						User.findOne({ polls: newPoll.poll.question })
+							.populate('creator', 'displayName') // only return the Persons name
+							.exec(function (err, poll) {
+							if (err) {
+								throw err;
+							}
+								});	
+								
+						User.findByIdAndUpdate(
+    					req.user._id,
+    					{$push: {polls: newPoll._id}},
+    					{safe: true, upsert: true},
+    					function(err, model) {
+        					console.log(err);
+    					}
+					);			
+						choicearray2 = [];
+						choicearray = [];
+						return newPoll;
+						
 
-	app.route('/profile/:id')
-		.get(isLoggedIn, function (req, res) {
-			User.find({'twitter.username':req.params.id}, function(user) {
-				res.render('profile',{user:user});
-			})
-			//res.sendFile(path + '/public/profile.html');
-		});
-		
-	app.route('/createpoll')
-		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/createpoll.html');
-		});	
-
-	app.route('/api/:id')
-		.get(isLoggedIn, function (req, res) {
-			res.json(req.user.twitter);
-		});
-
-	app.route('/auth/github')
-		.get(passport.authenticate('github'));
-
-	app.route('/auth/github/callback')
-		.get(passport.authenticate('github', {
-			successRedirect: '/',
-			failureRedirect: '/login'
-		}));
-	
-	app.route('/auth/twitter')
-		.get(passport.authenticate('twitter'));
-
-	app.route('/auth/twitter/callback')
-		.get(passport.authenticate('twitter', {
-			successRedirect: '/',
-			failureRedirect: '/login'
-		}));	
-
-	/*app.route('/api/:id/clicks')
-		.get(isLoggedIn, clickHandler.getClicks)
-		.post(isLoggedIn, clickHandler.addClick)
-		.delete(isLoggedIn, clickHandler.resetClicks);*/
-		
-	app.route('/createpoll')
-		.post(pollHandler.addPoll);
-		
-	app.route('/success')
-		.get(function (req, res) {
-		//console.dir(req.body);
-		res.sendFile(path + '/public/success.html');
-		});
-
-		
+					});
+}
+});
 };
+}
+
+module.exports = PollHandler;
