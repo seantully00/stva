@@ -105,9 +105,9 @@ module.exports = function (app, passport) {
 				newchoices[item]=0;
 			});
 			console.log(newchoices);
-			Poll.findByIdAndUpdate(req.params.id,
-			{ $addToSet: {choices: newchoices} }, function (err, poll) {
-				if (err) return (err);
+			Poll.findById(req.params.id, function(err, poll) {
+			newchoices = Object.assign(poll.choices, newchoices);
+			Poll.update(req.params.id, {choices: newchoices} );
 				res.redirect('/poll/' + poll._id);
 });
 		});
