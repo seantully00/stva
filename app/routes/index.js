@@ -106,7 +106,7 @@ module.exports = function (app, passport) {
 			})
 			console.log(newchoices);
 			Poll.findByIdAndUpdate(req.params.id,
-			{ $addToSet: { choices: { $each: newchoices }}}, { new: true }, function (err, poll) {
+			{ $addToSet: { choices: { $each: newchoices }}}, function (err, poll) {
 				if (err) return (err);
 				res.redirect('/poll/' + poll._id)
 });
