@@ -11,7 +11,7 @@
 </div>
 
 <div>
-		    <form method="post" action="/addchoices" class="createpoll"><br>
+		    <form method="post" action="/poll/" + {{ poll.id }} + "/addchoices" class="createpoll"><br>
                 <div name="choices" id="choices">
                 	<label>Add new choices (comma-separated):</label>
                     <textarea type="text" name="choices"></textarea>
