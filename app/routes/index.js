@@ -109,6 +109,8 @@ module.exports = function (app, passport) {
 			newchoices = Object.assign(poll.choices, newchoices);
 			console.log(newchoices);
 			this.update({ choices: newchoices });
+			poll.markModified('choices');
+			poll.save();
 				res.redirect('/poll/' + poll._id);
 });
 		});
