@@ -107,7 +107,7 @@ module.exports = function (app, passport) {
 			Poll.findById(req.params.id, function(err, poll) {
 			newchoices = Object.assign(poll.choices, newchoices);
 			console.log(newchoices);
-			Poll.update(req.params.id, {choices: newchoices} );
+			poll.update( {choices: newchoices} );
 				res.redirect('/poll/' + poll._id);
 });
 		});
