@@ -99,10 +99,11 @@ module.exports = function (app, passport) {
 //need to change this route to add choices to polls		
 	app.route('poll/addchoices/:id')
 		.post(function (req, res) {
-			var choices = {};
-			var newchoices = req.body.choices.split(',');
-			newchoices.forEach(function(item) {
-				choices[item]=0;
+			var newchoices = {};
+			var choices = req.body.choices.split(',');
+			choices.forEach(function(item) {
+				newchoices[item]=0;
+				console.log(newchoices);
 			})
 			Poll.findByIdAndUpdate(req.params.id,
 			{ $addToSet: { choices: { $each: choices }}}, { new: true }, function (err, poll) {
