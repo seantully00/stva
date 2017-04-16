@@ -104,9 +104,9 @@ module.exports = function (app, passport) {
 			choices.forEach(function(item) {
 				newchoices[item]=0;
 			});
-			console.log(newchoices);
 			Poll.findById(req.params.id, function(err, poll) {
 			newchoices = Object.assign(poll.choices, newchoices);
+			console.log(newchoices);
 			Poll.update(req.params.id, {choices: newchoices} );
 				res.redirect('/poll/' + poll._id);
 });
