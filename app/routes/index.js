@@ -85,13 +85,13 @@ module.exports = function (app, passport) {
 			console.log(newpoll);
 			Poll.create(newpoll, function(err, poll) {
 				if (err) {
-					console.log(err)
+					console.log(err);
 				}
 			User.findById(req.user._id, function(err, user){
 				console.log(user);
 				user.polls.push(poll._id);
     			user.save();
-				res.redirect('/poll/' + poll._id)
+				res.redirect('/poll/' + poll._id);
 			});
 			});
 		});
@@ -103,12 +103,12 @@ module.exports = function (app, passport) {
 			var choices = req.body.choices.split(',');
 			choices.forEach(function(item) {
 				newchoices[item]=0;
-			})
+			});
 			console.log(newchoices);
 			Poll.findByIdAndUpdate(req.params.id,
-			{ $addToSet: { choices: { $each: newchoices }}}, function (err, poll) {
+			{ choices: newchoices }, function (err, poll) {
 				if (err) return (err);
-				res.redirect('/poll/' + poll._id)
+				res.redirect('/poll/' + poll._id);
 });
 		});
 		
