@@ -9,7 +9,7 @@ var Poll = new Schema({
         creator: {
             type: Schema.Types.ObjectId, ref: 'User'
         },
-        choices :  [{}]
+        choices :  {}
 });
 
 module.exports = mongoose.model('Poll', Poll);
