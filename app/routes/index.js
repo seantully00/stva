@@ -103,8 +103,8 @@ module.exports = function (app, passport) {
 			var choices = req.body.choices.split(',');
 			choices.forEach(function(item) {
 				newchoices[item]=0;
-				console.log(newchoices);
 			})
+			console.log(newchoices);
 			Poll.findByIdAndUpdate(req.params.id,
 			{ $addToSet: { choices: { $each: choices }}}, { new: true }, function (err, poll) {
 				if (err) return (err);
