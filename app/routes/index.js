@@ -112,11 +112,11 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
-				var labelarray = [];
+				var labelarray = Object.keys(poll.choices);
 				//console.log(pollchoices);
-					for (var key in poll.choices) {
-    				labelarray.push(key.toString());
-				}
+				//	for (var key in poll.choices) {
+    			//	labelarray.push(key.toString());
+				//}
 				var valuearray = Object.keys(poll.choices).map(function(key) {
     			return poll.choices[key];
 });
