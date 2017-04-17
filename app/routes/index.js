@@ -66,6 +66,10 @@ module.exports = function (app, passport) {
 			newpoll.choices = {};
 			var choices = req.body.choices;
 			choices = choices.split(',');
+			var blank = choices.indexOf("");
+				if (blank > -1) {
+    				choices.splice(blank, 1);
+				}
 			choices.forEach(function(item) {
 				newpoll.choices[item]=0;
 			})
@@ -89,6 +93,10 @@ module.exports = function (app, passport) {
 			var newchoices = {};
 			var choices = req.body.choices;
 			var choices = choices.split(',');
+			var blank = choices.indexOf("");
+				if (blank > -1) {
+    				choices.splice(blank, 1);
+				}
 			choices.forEach(function(item) {
 				newchoices[item]=0;
 			});
