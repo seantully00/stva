@@ -24,14 +24,14 @@
 		<div class="chart">
 		<canvas id="myChart" width="400" height="400"></canvas>
 		<script>
-var ctx = document.getElementById("myChart");
+		    var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: {{ labels }},
+        labels: [{{ labels }}],
         datasets: [{
             label: '# of Votes',
-            data: [{{ values }}],
+            data: [{{ data }}],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)',
             borderWidth: 1
@@ -48,7 +48,8 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-</script>
+}
+		</script>
 		</div>
 
 <a class="twitter-share-button"
