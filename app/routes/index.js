@@ -2,7 +2,6 @@
 
 var User = require('../models/users');
 var Poll = require('../models/polls');
-var Choice = require('../models/choices');
 
 var path = process.cwd();
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
