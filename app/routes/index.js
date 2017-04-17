@@ -111,9 +111,8 @@ module.exports = function (app, passport) {
 			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
 				var labelarray = [];
-				var pollchoices=JSON.stringify(poll.choices);
-				console.log(pollchoices);
-					for (var key in pollchoices) {
+				//console.log(pollchoices);
+					for (var key in poll.choices) {
     				labelarray.push(key);
 				}
 				var valuearray = Object.keys(poll.choices).map(function(key) {
