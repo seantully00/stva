@@ -26,10 +26,11 @@
 		<script>
 var ctx = document.getElementById("myChart");
 var labels = {{ labels }};
+labels2 = labels.split(',');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: labels,
+        labels: labels2,
         datasets: [{
             label: '# of Votes',
             data: [{{ values }}],
