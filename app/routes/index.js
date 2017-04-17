@@ -124,7 +124,7 @@ module.exports = function (app, passport) {
 				console.log(valuearray);
 				res.render("poll",{
 					poll:poll,
-					labels:labelarray,
+					labels:labelarray.toString(),
 					values:valuearray
 					
 				});	
