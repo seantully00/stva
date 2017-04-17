@@ -16,13 +16,20 @@ function vote(pollid, selection) {
 
 function chart(pollid) {
 var xhr = new XMLHttpRequest();
-var api =
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+xhr.onreadystatechange = function() { 
+        if (xhr.readyState == 4 && xhr.status == 200)
+            callback(xhr.responseText);
+    }
+    xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
+    xhr.send(null);
+    var polldata = xhr.responseText
+    console.log(polldata);
+    /*var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [{{ labels }}],
-        datasets: [{
+        labels: ,
+        datasets: [
             label: '# of Votes',
             data: [{{ data }}],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -40,5 +47,5 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
-});
+});*/
 }
