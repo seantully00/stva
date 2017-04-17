@@ -110,8 +110,11 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
+				var pollarray = Object.entries(poll.choices);
+				console.log(pollarray);
 				res.render("poll",{
 					poll:poll,
+					
 				});	
 			})
 		})
@@ -147,15 +150,6 @@ module.exports = function (app, passport) {
 			}
 		});
 		
-	app.route('/auth/github')
-		.get(passport.authenticate('github'));
-
-	app.route('/auth/github/callback')
-		.get(passport.authenticate('github', {
-			successRedirect: '/',
-			failureRedirect: '/login'
-		}));
-	
 	app.route('/auth/twitter')
 		.get(passport.authenticate('twitter'));
 
