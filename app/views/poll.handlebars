@@ -25,16 +25,10 @@
 		<canvas id="myChart" width="400" height="400"></canvas>
 		<script>
 var ctx = document.getElementById("myChart");
-var labels = [{{ labels }}];
-var labels2 = [];
-for (i=0; i<labels.length; i++){
-    labels2.push(label[i].toString());
-}
-console.log(labels2);
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: labels2,
+        labels: {{ labels }},
         datasets: [{
             label: '# of Votes',
             data: [{{ values }}],
