@@ -113,7 +113,7 @@ module.exports = function (app, passport) {
 	app.route('/polldata/:id')
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
-			res.render(poll);
+			return poll;
 		});
 		});
 		
