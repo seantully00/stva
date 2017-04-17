@@ -14,7 +14,8 @@ function vote(pollid, selection) {
 };
 
 
-document.getElementById("myChart").onload = function pollchart(pollid) {
+//document.getElementById("myChart").onload = 
+function pollchart(pollid) {
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() { 
         if (xhr.readyState == 4 && xhr.status == 200)
