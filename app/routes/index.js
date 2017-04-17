@@ -114,7 +114,8 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
 			res.render(poll);
-		});	
+		});
+		});
 		
 	app.route('/poll/:id')
 		.get(function (req, res) {
