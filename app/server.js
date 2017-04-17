@@ -8,7 +8,6 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var connect = require('connect');
 var path = require('path');
-var helpers = require('./helpers/helpers.js');
 
 var exphbs  = require('express-handlebars');
 
