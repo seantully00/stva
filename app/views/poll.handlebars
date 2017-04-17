@@ -1,4 +1,29 @@
-<script>
+
+<div>
+{{poll.question}}
+
+{{#each poll.choices}}
+<h3>{{ @key }} | {{ this }} <button onclick="vote('{{{ ../poll.id }}}','{{{ @key }}}')">+1</button>
+
+{{/each}}
+
+<div id="chart">
+    {{chart}}
+</div>
+
+<div>
+		    <form method="post" action="/poll/{{ poll.id }}/addchoices" class="createpoll"><br>
+                <div name="choices" id="choices">
+                	<label>Add new choices (comma-separated):</label>
+                    <textarea type="text" name="choices"></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+		</div> 
+		
+		<div class="chart">
+		<canvas id="myChart" width="400" height="400"></canvas>
+		<script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'bar',
@@ -37,30 +62,6 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
-
-<div>
-{{poll.question}}
-
-{{#each poll.choices}}
-<h3>{{ @key }} | {{ this }} <button onclick="vote('{{{ ../poll.id }}}','{{{ @key }}}')">+1</button>
-
-{{/each}}
-
-<div id="chart">
-    {{chart}}
-</div>
-
-<div>
-		    <form method="post" action="/poll/{{ poll.id }}/addchoices" class="createpoll"><br>
-                <div name="choices" id="choices">
-                	<label>Add new choices (comma-separated):</label>
-                    <textarea type="text" name="choices"></textarea>
-                </div>
-                <input type="submit" value="Submit">
-            </form>
-		</div> 
-		<div class="chart">
-		<canvas id="myChart" width="400" height="400"></canvas>
 		</div>
 
 <a class="twitter-share-button"
