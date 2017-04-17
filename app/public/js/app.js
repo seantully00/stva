@@ -37,7 +37,7 @@ xhr.onreadystatechange = function() {
     type: 'bar',
     data: {
         labels: labels,
-        datasets: [
+        datasets: [{
             label: '# of Votes',
             data: data,
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
