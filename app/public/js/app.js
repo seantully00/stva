@@ -55,5 +55,3 @@ xhr.onreadystatechange = function() {
         }
     }
 };
-
-window.onload = pollchart;
