@@ -12,3 +12,5 @@ function vote(pollid, selection) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({choice:selection}));
 };
+
+
