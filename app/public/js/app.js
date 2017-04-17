@@ -14,6 +14,7 @@ function vote(pollid, selection) {
 };
 
 function myChart(){
+    var chart = require('chart.js');
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
     type: 'bar',

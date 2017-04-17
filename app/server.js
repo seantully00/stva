@@ -9,7 +9,6 @@ var bodyParser = require('body-parser');
 var connect = require('connect');
 var path = require('path');
 var helpers = require('./helpers/helpers.js');
-var chart = require('chart.js');
 
 var exphbs  = require('express-handlebars');
 
