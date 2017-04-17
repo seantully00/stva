@@ -64,7 +64,7 @@ module.exports = function (app, passport) {
 			console.log(req.body);
 			var newpoll = {question : req.body.question};
 			newpoll.choices = {};
-			var choices = req.body.choices.split(',');
+			var choices = req.body.choices.split(',').toString();
 			choices.forEach(function(item) {
 				newpoll.choices[item]=0;
 			})
@@ -86,7 +86,7 @@ module.exports = function (app, passport) {
 	app.route('/poll/:id/addchoices')
 		.post(function (req, res) {
 			var newchoices = {};
-			var choices = req.body.choices.split(',');
+			var choices = req.body.choices.split(',').toString();
 			choices.forEach(function(item) {
 				newchoices[item]=0;
 			});
