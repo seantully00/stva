@@ -22,9 +22,11 @@
 		</div> 
 		
 		<div class="chart">
-		<canvas id="myChart" width="100" height="100"></canvas>
+		<canvas id="myChart" width="200" height="200"></canvas>
 		<script>
 var ctx = document.getElementById("myChart");
+ctx.canvas.width = 200;
+ctx.canvas.height = 200;
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
