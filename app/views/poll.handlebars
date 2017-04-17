@@ -26,7 +26,8 @@
 		<script>
 var ctx = document.getElementById("myChart");
 var labels = {{ labels }};
-labels2 = labels.split(',');
+var labels2 = labels.split(',');
+console.log(labels2);
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
