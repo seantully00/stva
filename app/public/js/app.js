@@ -24,14 +24,21 @@ xhr.onreadystatechange = function() {
     xhr.send(null);
     var polldata = xhr.responseText
     console.log(polldata);
-    /*var ctx = document.getElementById("myChart");
+        var labels = [];
+					for (var key in polldata.choices) {
+    				labels.push(key);
+				}
+		var values = Object.keys(polldata.choices).map(function(key) {
+    		return polldata.choices[key];
+        });
+    var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ,
+        labels: labels,
         datasets: [
             label: '# of Votes',
-            data: [{{ data }}],
+            data: data,
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)',
             borderWidth: 1
@@ -47,5 +54,5 @@ xhr.onreadystatechange = function() {
             }]
         }
     }
-});*/
+});
 }
