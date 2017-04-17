@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var connect = require('connect');
 var path = require('path');
 var helpers = require('./helpers/helpers.js');
+var chart = require('chart.js');
 
 var exphbs  = require('express-handlebars');
 
@@ -18,7 +19,6 @@ app.use(express.static(__dirname + '/public'));
 
 app.engine('handlebars', exphbs({defaultLayout: 'main',extname:'.handlebars',layoutsDir:__dirname+'/views/layouts'}));
 app.set('views', __dirname + '/views');
-//app.set('views', process.cwd() +'/views');
 app.set('view engine', 'handlebars');
 
 
@@ -33,16 +33,10 @@ require('./config/passport')(passport);
 mongoose.connect(process.env.MONGO_URI);
 mongoose.Promise = global.Promise;
 
-//app.use('/controllers', './controllers');
-//app.use('/public', '/public');
-//app.use('/common', './common');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json());
-
-//app.use(express.json());       // to support JSON-encoded bodies
-//app.use(express.urlencoded()); // to support URL-encoded bodies
 
 app.use(session({
 	secret: 'secretClementine',

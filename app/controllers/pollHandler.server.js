@@ -9,17 +9,7 @@ var choicearray = [];
 function PollHandler () {
 
 
-	/*this.getPolls = function (req, res) {
-		Poll
-			.findOne({ 'poll.id': id }, { '_id': false })
-			.exec(function (err, result) {
-				if (err) { throw err; }
-				res.json(result);
-			});
-	};*/
-
 	this.addPoll = function (req, res) {
-		//var id = 1;
 		process.nextTick(function (err, poll) {
 				if (err) {
 					return err;
@@ -36,13 +26,7 @@ function PollHandler () {
 					}
 					newPoll.poll.choices = choicearray2;
 					
-					//newPoll.save(function(err,poll) {
-					//	console.log(poll.id);
-					//	var poll_id = poll.poll.id;
-					
-					// find by document id and update
 
- 
 					newPoll.save(function (err) {
 						if (err) {
 							throw err;

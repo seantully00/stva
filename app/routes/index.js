@@ -3,11 +3,8 @@
 var User = require('../models/users');
 var Poll = require('../models/polls');
 var Choice = require('../models/choices');
-var d3 = require('d3');
 
-//var path = __dirname;
 var path = process.cwd();
-//var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 var PollHandler = require(path + '/app/controllers/pollHandler.server.js');
 
 module.exports = function (app, passport) {
@@ -20,7 +17,6 @@ module.exports = function (app, passport) {
 		}
 	}
 
-	//var clickHandler = new ClickHandler();
 	var pollHandler = new PollHandler();
 
 	app.route('/')
@@ -41,14 +37,6 @@ module.exports = function (app, passport) {
 			})
 		});
 		
-	/*app.route('/poll')
-		.get(isLoggedIn, function (req, res) {
-			console.log(req.params);
-			User.findOne({"twitter.username":req.params.id}, function(err, user) {
-				res.render('poll');
-			})
-		});*/
-
 	app.route('/logout')
 		.get(function (req, res) {
 			req.logout();
@@ -96,7 +84,6 @@ module.exports = function (app, passport) {
 			});
 		});
 
-//need to change this route to add choices to polls		
 	app.route('/poll/:id/addchoices')
 		.post(function (req, res) {
 			var newchoices = {};
@@ -124,18 +111,8 @@ module.exports = function (app, passport) {
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
 				console.log(poll.choices);
-				//poll.poll.choices.count++;
 				res.render("poll",{
 					poll:poll,
-					/*helpers: {
-						chart: function(poll){
-							console.log(poll);
-							var chart = d3.select("#chart")
-							.append("svg")
-							.attr("width",100)
-							.attr("height",100);
-						}
-					}*/
 				});	
 			})
 		})
@@ -171,16 +148,6 @@ module.exports = function (app, passport) {
 			}
 		});
 		
-	/*app.route('/poll/:id/:choice')
-		.post(function (req, res) {
-			Poll.findOne({"_id":req.params.id}, function(err, poll){
-				Choice.findOneAndUpdate({"_id": req.params.choice}, {$inc : {'count' : 1}});
-				res.redirect('/poll');		
-				})
-				//console.log(poll.poll.choices);
-			});*/
-
-
 	app.route('/auth/github')
 		.get(passport.authenticate('github'));
 
@@ -199,20 +166,9 @@ module.exports = function (app, passport) {
 			failureRedirect: '/login'
 		}));	
 
-	/*app.route('/api/:id/clicks')
-		.get(isLoggedIn, clickHandler.getClicks)
-		.post(isLoggedIn, clickHandler.addClick)
-		.delete(isLoggedIn, clickHandler.resetClicks);*/
-		
-//	app.route('/createpoll')
-	//	.post(pollHandler.addPoll);
-		
 	app.route('/success')
 		.get(function (req, res) {
-		//console.dir(req.body);
 		res.render('success');
 		});
-//agasg
-		
-		
+
 };
