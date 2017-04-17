@@ -22,7 +22,6 @@ app.set('view engine', 'handlebars');
 
 var hbs = exphbs.create({
     // Specify helpers which are only registered on this instance. 
-    helpers: helpers
 });
 
 require('dotenv').load();
