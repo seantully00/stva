@@ -22,7 +22,7 @@ xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200)
             console.log("app.js" + xhr.responseText);
             polldata = JSON.parse(xhr.responseText);
-},
+};
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
     console.log(polldata);
     xhr.send();
