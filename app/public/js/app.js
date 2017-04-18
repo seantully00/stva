@@ -18,8 +18,8 @@ function vote(pollid, selection) {
 function pollchart(pollid) {
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() { 
-        //if (xhr.readyState == 4 && xhr.status == 200)
-          // console.log(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == 200)
+            console.log(xhr.responseText);
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
     var polldata = xhr.responseText;
     console.log("app.js" + xhr.responseText);

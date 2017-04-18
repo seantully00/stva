@@ -120,7 +120,7 @@ module.exports = function (app, passport) {
 	app.route('/poll/:id')
 		.get(function (req, res) {
 			Poll.findById(req.params.id, function(err, poll){
-				console.log(poll.choices);
+				//console.log(poll.choices);
 				var labelarray = [];
 					for (var key in poll.choices) {
     				labelarray.push(key);
@@ -128,8 +128,8 @@ module.exports = function (app, passport) {
 				var valuearray = Object.keys(poll.choices).map(function(key) {
     			return poll.choices[key];
 });
-				console.log(labelarray);
-				console.log(valuearray);
+				//console.log(labelarray);
+				//console.log(valuearray);
 				res.render("poll",{
 					poll:poll,
 					layout:'pollheader'
