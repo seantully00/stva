@@ -23,12 +23,12 @@ xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200)
             console.log("app.js" + xhr.responseText);
             polldata = JSON.parse(xhr.responseText);
-            console.log("polldata" + polldata);
+            console.log("polldata" + polldata.choices);
                     var labels = [];
 					for (var key in polldata.choices) {
     				labels.push(key);
 				}
-		var values = Object.keys(polldata.choices).map(function(key) {
+		var data = Object.keys(polldata.choices).map(function(key) {
     		return polldata.choices[key];
         });
     var ctx = document.getElementById("myChart");
