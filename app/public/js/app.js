@@ -55,4 +55,5 @@ xhr.onreadystatechange = function() {
             }]
         }
     }
+})
 };
