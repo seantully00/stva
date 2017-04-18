@@ -23,8 +23,8 @@ xhr.onreadystatechange = function() {
     }
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
     xhr.send(null);
-    var polldata = JSON.parse(xhr.responseText);
-    console.log(polldata);
+    var polldata = xhr.responseText;
+    console.log(polldata.choices);
         var labels = [];
 					for (var key in polldata.choices) {
     				labels.push(key);
