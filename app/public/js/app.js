@@ -17,11 +17,13 @@ function vote(pollid, selection) {
 //document.getElementById("myChart").onload = 
 function pollchart(pollid) {
 var xhr = new XMLHttpRequest();
+var polldata;
 xhr.onreadystatechange = function() { 
         if (xhr.readyState == 4 && xhr.status == 200)
             console.log(xhr.responseText);
+},
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
-    var polldata = xhr.responseText;
+    polldata = xhr.responseText;
     console.log("app.js" + xhr.responseText);
     xhr.send(null);
         var labels = [];
@@ -56,5 +58,4 @@ xhr.onreadystatechange = function() {
     }
 })
     
-}
 };
