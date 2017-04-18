@@ -23,7 +23,7 @@ var xhr = new XMLHttpRequest();
     //}
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
     var polldata = xhr.responseText;
-    console.log(polldata);
+    console.log(xhr.responseText);
     xhr.send(null);
         var labels = [];
 					for (var key in polldata.choices) {
