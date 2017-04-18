@@ -24,9 +24,7 @@ xhr.onreadystatechange = function() {
             console.log("app.js" + xhr.responseText);
             polldata = JSON.parse(xhr.responseText);
             console.log("polldata" + polldata);
-};
-    xhr.send();
-        var labels = [];
+                    var labels = [];
 					for (var key in polldata.choices) {
     				labels.push(key);
 				}
@@ -57,5 +55,6 @@ xhr.onreadystatechange = function() {
         }
     }
 })
-    
+};
+    xhr.send();
 };
