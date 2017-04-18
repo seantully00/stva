@@ -17,10 +17,9 @@ function vote(pollid, selection) {
 //document.getElementById("myChart").onload = 
 function pollchart(pollid) {
 var xhr = new XMLHttpRequest();
-//xhr.onreadystatechange = function() { 
-        //if (xhr.readyState == 4 && xhr.status == 200)
-          //  console.log(xhr.responseText);
-    //}
+xhr.onreadystatechange = function() { 
+        if (xhr.readyState == 4 && xhr.status == 200)
+           console.log(xhr.responseText);
     xhr.open("GET", "https://stvapp.herokuapp.com/polldata/" + pollid, true); // true for asynchronous 
     var polldata = xhr.responseText;
     console.log(xhr.responseText);
@@ -56,4 +55,6 @@ var xhr = new XMLHttpRequest();
         }
     }
 })
+    
+}
 };
